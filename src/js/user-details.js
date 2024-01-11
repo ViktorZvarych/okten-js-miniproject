@@ -22,7 +22,7 @@ const showUserInfo = () => __awaiter(this, void 0, void 0, function* () {
     const userInfoArray = [];
     getUserInfo(userInfoObject, userInfoArray);
     // console.log(userInfoArray);
-    const userInfoArticle = document.getElementById('user-details-article');
+    // const userInfoArticle = document.getElementById('user-details-article') as HTMLElement;
     const userInfoList = document.getElementById('user-details-list');
     userInfoArray.map(item => {
         const userInfoItem = document.createElement('li');
@@ -49,7 +49,7 @@ const showUserInfo = () => __awaiter(this, void 0, void 0, function* () {
             userPostText.innerText = body.slice(0, 1).toUpperCase() + body.slice(1, 40) + '...';
             const userPostLink = document.createElement('a');
             userPostLink.innerText = 'More';
-            const userPostURL = `../pages/post-details.html?post-details=${JSON.stringify(userPost)}&userinfo=${userInfo}`;
+            const userPostURL = `./post-details.html?post-details=${JSON.stringify(userPost)}&userinfo=${userInfo}`;
             userPostLink.href = `${userPostURL}`;
             userPostCard.append(userPostTitle, userPostText, userPostLink);
             userPostslist.appendChild(userPostCard);
@@ -59,7 +59,6 @@ const showUserInfo = () => __awaiter(this, void 0, void 0, function* () {
     });
     const loader = document.getElementById('loader');
     loader.classList.add('hidden');
-    // document.body.appendChild(userInfoList);
 });
 function getUserInfo(object, array) {
     for (const [key, value] of Object.entries(object)) {

@@ -24,7 +24,7 @@ const showUsers = async (): Promise<void> => {
         const userInfoButton = document.createElement('button');
         userInfoButton.innerText = 'Details';
         userInfoButton.onclick = () => {
-            window.location.href = `./pages/user-details.html?userinfo=${JSON.stringify(user)}`;
+            window.location.href = `./src/pages/user-details.html?userinfo=${JSON.stringify(user)}`;
         }
         userBlock.append(userInfoText, userInfoButton);
         usersContainer.appendChild(userBlock);

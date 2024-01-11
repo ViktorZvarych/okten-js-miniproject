@@ -17,7 +17,7 @@ const showUserInfo = async (): Promise<void> => {
     getUserInfo(userInfoObject, userInfoArray);
     // console.log(userInfoArray);
 
-    const userInfoArticle = document.getElementById('user-details-article') as HTMLElement;
+    // const userInfoArticle = document.getElementById('user-details-article') as HTMLElement;
     const userInfoList = document.getElementById('user-details-list') as HTMLUListElement;
 
     userInfoArray.map(item => {
@@ -50,7 +50,7 @@ const showUserInfo = async (): Promise<void> => {
             userPostText.innerText = body.slice(0, 1).toUpperCase() + body.slice(1, 40) + '...';
             const userPostLink = document.createElement('a');
             userPostLink.innerText = 'More';
-            const userPostURL = `../pages/post-details.html?post-details=${JSON.stringify(userPost)}&userinfo=${userInfo}`;
+            const userPostURL = `./post-details.html?post-details=${JSON.stringify(userPost)}&userinfo=${userInfo}`;
             userPostLink.href = `${userPostURL}`;
 
             userPostCard.append(userPostTitle, userPostText, userPostLink);
@@ -63,12 +63,9 @@ const showUserInfo = async (): Promise<void> => {
 
     const loader: HTMLElement = document.getElementById('loader');
     loader.classList.add('hidden');
-    // document.body.appendChild(userInfoList);
-
-
 }
 
-function getUserInfo(object, array) {
+function getUserInfo(object: object, array: string[]) {
     for (const [key, value] of Object.entries(object)) {
         if (typeof value !== 'object') {
             array.push(`- ${key}: ${value}`);
