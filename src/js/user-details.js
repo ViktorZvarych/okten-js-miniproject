@@ -33,36 +33,33 @@ const showUserInfo = () => __awaiter(this, void 0, void 0, function* () {
         }
     }
     const showUserPostsButton = document.getElementById('show-user-posts-button');
+    const userPostslist = document.getElementById('user-posts-list');
     showUserPostsButton.onclick = showUserPosts;
     function showUserPosts() {
         return __awaiter(this, void 0, void 0, function* () {
-            loader.classList.toggle('hidden');
             const userPostsJson = yield fetch(`https://jsonplaceholder.typicode.com/users/${userInfoObject.id}/posts/`);
             const userPosts = yield userPostsJson.json();
             console.log(userPosts);
-            const userPostslist = document.getElementById('user-posts-list');
-            userPostslist.innerHTML = '';
-            userPostslist.classList.add('user-posts-list');
-            for (const userPost of userPosts) {
-                const { title, body } = userPost;
-                const userPostCard = document.createElement('li');
-                userPostCard.classList.add('card-element');
-                const userPostTitle = document.createElement('h4');
-                userPostTitle.innerText = title.slice(0, 1).toUpperCase() + title.slice(1, 25) + '...';
-                const userPostText = document.createElement('p');
-                userPostText.classList.add('hidden-text');
-                userPostText.innerText = body.slice(0, 1).toUpperCase() + body.slice(1, 40) + '...';
-                const userPostLink = document.createElement('a');
-                userPostLink.innerText = 'More';
-                const userPostURL = `./post-details.html?post-details=${JSON.stringify(userPost)}&userinfo=${userInfo}`;
-                userPostLink.href = `${userPostURL}`;
-                userPostCard.append(userPostTitle, userPostText, userPostLink);
-                userPostslist.appendChild(userPostCard);
-            }
-            loader.classList.toggle('hidden');
+            setTimeout(() => {
+                userPostslist.innerHTML = '';
+                for (const userPost of userPosts) {
+                    const { title, body } = userPost;
+                    const userPostCard = document.createElement('li');
+                    userPostCard.classList.add('card-element');
+                    const userPostTitle = document.createElement('h4');
+                    userPostTitle.innerText = title.slice(0, 1).toUpperCase() + title.slice(1, 25) + '...';
+                    const userPostText = document.createElement('p');
+                    userPostText.classList.add('hidden-text');
+                    userPostText.innerText = body.slice(0, 1).toUpperCase() + body.slice(1, 40) + '...';
+                    const userPostLink = document.createElement('a');
+                    userPostLink.innerText = 'More';
+                    const userPostURL = `./post-details.html?post-details=${JSON.stringify(userPost)}&userinfo=${userInfo}`;
+                    userPostLink.href = `${userPostURL}`;
+                    userPostCard.append(userPostTitle, userPostText, userPostLink);
+                    userPostslist.appendChild(userPostCard);
+                }
+            }, 500);
         });
     }
-    const loader = document.getElementById('loader');
-    loader.classList.add('hidden');
 });
 showUserInfo();

@@ -22,29 +22,32 @@ const showPostInfo = async (): Promise<void> => {
     const comments = await commentsRes.json();
     console.log(comments);
 
+    const loader: HTMLElement = document.body.querySelector('.loader');
+
     const postCommentsElement = document.getElementById('post-comments') as HTMLElement;
 
-    for (const comment of comments) {
-        const {name, email, body} = comment;
-        const commentElement = document.createElement('div');
-        commentElement.classList.add('card-element');
-        const nameElement = document.createElement('p');
-        nameElement.innerText = `Name: ${name}`;
-        const emailElement = document.createElement('p');
-        emailElement.style['word-break'] = 'break-word';
-        emailElement.innerText = `Email: ${email}`;
-        const bodyElement = document.createElement('p');
-        bodyElement.classList.add('hidden-text');
-        bodyElement.innerText = `Comment: ${body}`;
-        const hr = document.createElement('hr');
+    setTimeout(() => {
+        loader.remove();
 
-        commentElement.append(nameElement, emailElement, hr, bodyElement);
-        postCommentsElement.appendChild(commentElement);
-    }
+        for (const comment of comments) {
+            const {name, email, body} = comment;
+            const commentElement = document.createElement('div');
+            commentElement.classList.add('card-element');
+            const nameElement = document.createElement('p');
+            nameElement.innerText = `Name: ${name}`;
+            const emailElement = document.createElement('p');
+            emailElement.style['word-break'] = 'break-word';
+            emailElement.innerText = `Email: ${email}`;
+            const bodyElement = document.createElement('p');
+            bodyElement.classList.add('hidden-text');
+            bodyElement.innerText = `Comment: ${body}`;
+            const hr = document.createElement('hr');
 
+            commentElement.append(nameElement, emailElement, hr, bodyElement);
+            postCommentsElement.appendChild(commentElement);
+        }
+    }, 500);
 
-    const loader: HTMLElement = document.getElementById('loader');
-    loader.classList.add('hidden');
 }
 
 showPostInfo();

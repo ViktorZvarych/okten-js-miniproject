@@ -1,7 +1,3 @@
-// В index.html
-// 1 отримати масив об'єктів з endpoint`а https://jsonplaceholder.typicode.com/users
-// 2 Вивести id,name всіх user в index.html. Окремий блок для кожного user.
-// 3 Додати кожному блоку кнопку/посилання , при кліку на яку відбувається перехід  на сторінку user-details.html, котра має детальну інфорацію про об'єкт на який клікнули
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -12,28 +8,32 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const showUsers = () => __awaiter(this, void 0, void 0, function* () {
-    const usersJson = yield fetch('https://jsonplaceholder.typicode.com/users');
+    const usersURL = 'https://jsonplaceholder.typicode.com/users';
+    const usersJson = yield fetch(usersURL);
     const users = yield usersJson.json();
-    console.log(users);
     const usersContainer = document.getElementById('users');
+    const userElements = document.createElement('div');
+    userElements.classList.add('users-container');
     for (const user of users) {
         const { id, name } = user;
-        const userBlock = document.createElement('article');
+        const userElement = document.createElement('article');
         const userInfoText = document.createElement('p');
         userInfoText.innerText = `
-        id: ${id},
-        name: ${name}
+        Id: ${id}
+        Name: ${name}
         `;
         const userInfoButton = document.createElement('button');
         userInfoButton.innerText = 'Details';
         userInfoButton.onclick = () => {
-            window.location.href = `./pages/user-details.html?userinfo=${JSON.stringify(user)}`;
+            window.location.href = `./src/pages/user-details.html?userinfo=${JSON.stringify(user)}`;
         };
-        userBlock.append(userInfoText, userInfoButton);
-        usersContainer.appendChild(userBlock);
+        userElement.append(userInfoText, userInfoButton);
+        userElements.appendChild(userElement);
     }
-    // document.body.appendChild(usersContainer);
-    const loader = document.getElementById('loader');
-    loader.classList.add('hidden');
+    const loader = document.body.querySelector('.loader');
+    setTimeout(() => {
+        loader.remove();
+        usersContainer.appendChild(userElements);
+    }, 500);
 });
 showUsers();

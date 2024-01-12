@@ -4,26 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a86771a-ea11-46f9-a8bc-64ae35f29fc6" name="Changes" comment="changed project structure: moved css and js folder into src, refactored pathes in html pages; changed flex to grid">
-      <change afterPath="$PROJECT_DIR$/src/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/css/loader.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/css/null.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/css/theme-toggle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ts/theme-toggle.ts" afterDir="false" />
+    <list default="true" id="1a86771a-ea11-46f9-a8bc-64ae35f29fc6" name="Changes" comment="added theme-toggle.js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniproject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/miniproject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/post-details.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/loader.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/loader.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/main.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/post-details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/post-details.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/user-details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/user-details.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/post-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/post-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/user-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ts/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ts/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ts/post-details.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/post-details.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ts/user-details.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/user-details.ts" afterDir="false" />
     </list>
@@ -63,26 +54,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "javascript.nodejs.core.library.configured.version": "20.10.0",
-    "javascript.nodejs.core.library.typings.version": "20.10.8",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Asus/IdeaProjects/miniproject/src/js",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Users\\Asus\\IdeaProjects\\miniproject\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;20.10.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.10.8&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Asus/IdeaProjects/miniproject/src/js&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Asus\\IdeaProjects\\miniproject\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Asus\IdeaProjects\miniproject\src\js" />
@@ -102,7 +93,8 @@
       <option name="presentableId" value="Default" />
       <updated>1704805614523</updated>
       <workItem from="1704805615290" duration="32707000" />
-      <workItem from="1704964683891" duration="23571000" />
+      <workItem from="1704964683891" duration="24171000" />
+      <workItem from="1705088204797" duration="4937000" />
     </task>
     <task id="LOCAL-00001" summary="created miniproject 1st version">
       <option name="closed" value="true" />
@@ -128,7 +120,23 @@
       <option name="project" value="LOCAL" />
       <updated>1704976958569</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="changed project structure and styles, added bootstrap css and js">
+      <option name="closed" value="true" />
+      <created>1705066737675</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1705066737676</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added theme-toggle.js">
+      <option name="closed" value="true" />
+      <created>1705066786520</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1705066786520</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +158,8 @@
     <MESSAGE value="unversioned files" />
     <MESSAGE value="changed project structure: moved css folder into src, refactored pathes in html pages" />
     <MESSAGE value="changed project structure: moved css and js folder into src, refactored pathes in html pages; changed flex to grid" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed project structure: moved css and js folder into src, refactored pathes in html pages; changed flex to grid" />
+    <MESSAGE value="changed project structure and styles, added bootstrap css and js" />
+    <MESSAGE value="added theme-toggle.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="added theme-toggle.js" />
   </component>
 </project>

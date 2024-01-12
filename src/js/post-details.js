@@ -25,24 +25,26 @@ const showPostInfo = () => __awaiter(this, void 0, void 0, function* () {
     const commentsRes = yield fetch(`https://jsonplaceholder.typicode.com/posts/${postInfo.id}/comments`);
     const comments = yield commentsRes.json();
     console.log(comments);
+    const loader = document.body.querySelector('.loader');
     const postCommentsElement = document.getElementById('post-comments');
-    for (const comment of comments) {
-        const { name, email, body } = comment;
-        const commentElement = document.createElement('div');
-        commentElement.classList.add('card-element');
-        const nameElement = document.createElement('p');
-        nameElement.innerText = `Name: ${name}`;
-        const emailElement = document.createElement('p');
-        emailElement.style['word-break'] = 'break-word';
-        emailElement.innerText = `Email: ${email}`;
-        const bodyElement = document.createElement('p');
-        bodyElement.classList.add('hidden-text');
-        bodyElement.innerText = `Comment: ${body}`;
-        const hr = document.createElement('hr');
-        commentElement.append(nameElement, emailElement, hr, bodyElement);
-        postCommentsElement.appendChild(commentElement);
-    }
-    const loader = document.getElementById('loader');
-    loader.classList.add('hidden');
+    setTimeout(() => {
+        loader.remove();
+        for (const comment of comments) {
+            const { name, email, body } = comment;
+            const commentElement = document.createElement('div');
+            commentElement.classList.add('card-element');
+            const nameElement = document.createElement('p');
+            nameElement.innerText = `Name: ${name}`;
+            const emailElement = document.createElement('p');
+            emailElement.style['word-break'] = 'break-word';
+            emailElement.innerText = `Email: ${email}`;
+            const bodyElement = document.createElement('p');
+            bodyElement.classList.add('hidden-text');
+            bodyElement.innerText = `Comment: ${body}`;
+            const hr = document.createElement('hr');
+            commentElement.append(nameElement, emailElement, hr, bodyElement);
+            postCommentsElement.appendChild(commentElement);
+        }
+    }, 500);
 });
 showPostInfo();
