@@ -1,60 +1,16 @@
-/*    Loader  */
+/*Common*/
 
-#loader {
-    width: 60px;
-    height: 60px;
-    border-radius: 100%;
-    position: absolute;
-    margin: 20vh 40vw;
-    opacity: 1;
-}
-
-.hidden {
-    visibility: hidden;
-    transition: visibility 0.5s ease-out;
-}
-
-#loader:before, #loader:after {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    border: 10px solid transparent;
-    border-top-color: #3498db;
-}
-
-#loader:before {
-    z-index: 2;
-    animation: spin 1.5s infinite;
-}
-
-#loader:after {
-    border: 10px solid #ccc;
-}
-
-@keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-
-    100% {
-        -webkit-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
-        transform: rotate(360deg);
+body {
+    h1, h2, h3, h4 {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid lightgray;
+        text-align: center;
     }
 }
 
 /* Users page */
-h1 {
-    text-align: center;
-}
 
 .users-container {
     margin: 0 auto;
@@ -65,65 +21,63 @@ h1 {
     grid-row-gap: 3vh;
 }
 
-    article {
-        max-width: 350px;
-        background: linear-gradient(71deg, #201323, #16071f, #2d1c33);
-        border-radius: 15px;
-        padding: 20px;
+article {
+    max-width: 350px;
+    background: linear-gradient(71deg, #201323, #16071f, #2d1c33);
+    border-radius: 15px;
+    padding: 20px;
 
-        font-weight: 600;
+    font-weight: 600;
+    color: white;
+    font-size: 20px;
+
+    a, button {
+        background-color: #104547;
+        cursor: pointer;
+        text-align: center;
+        display: inline-block;
+        position: relative;
+        text-decoration: none;
         color: white;
-        font-size: 20px;
+        font-size: 18px;
+        padding: 20px;
+        min-width: 150px;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: all 0.2s linear 0s;
 
-        a, button {
-            background-color: #104547;
-            cursor: pointer;
-            text-align: center;
-            display: inline-block;
-            position: relative;
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
-            padding: 20px;
-            min-width: 150px;
-            border-radius: 10px;
-            overflow: hidden;
+        &:before {
+            content: ">";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 30px;
+            background-color: #226669;
+            border-radius: 0 50% 50% 0;
+            transform: scale(0, 1);
+            transform-origin: left center;
             transition: all 0.2s linear 0s;
+        }
+
+        &:hover {
+            text-indent: 30px;
 
             &:before {
-                content: ">";
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 30px;
-                background-color: #226669;
-                border-radius: 0 50% 50% 0;
-                transform: scale(0,1);
-                transform-origin: left center;
-                transition: all 0.2s linear 0s;
-            }
-
-            &:hover {
-                text-indent: 30px;
-
-                &:before {
-                    transform: scale(1,1);
-                    text-indent: 0;
-                }
+                transform: scale(1, 1);
+                text-indent: 0;
             }
         }
     }
-
+}
 
 /*common for posts and comments*/
-.card {
-    width: 220px;
-    min-width: 220px;
-    max-width: 18%;
+
+.card-element {
+    max-width: 220px;
     display: flex;
     flex-direction: column;
 
@@ -140,117 +94,113 @@ h1 {
     }
 }
 
-.hidden-text {
-    opacity: 0;
-    transition: all 0.3s ease;
-}
+/* User details*/
 
-.card:hover {
-    .hidden-text {
-        transition: all 0.3s ease;
-        opacity: 1;
+#user-details-article {
+    margin: 0 auto;
+    min-width: 90vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .card-element {
+        justify-content: space-between;
     }
 }
-    /* User details*/
 
-    #user-details-article {
-        margin: 0 auto;
-        min-width: 90vw;
+.all-users-link {
+    align-self: end;
+}
 
+h2 {
+    width: 200px;
+}
+
+#user-details-list {
+    font-weight: 400;
+    font-size: 1.1rem;
+
+    li {
+        padding: 4px 0;
+    }
+}
+
+/*User posts list*/
+
+.user-posts-list {
+    width: 100%;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 2vw;
+    grid-row-gap: 3vh;
+    @media screen and (max-width: 1200px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    @media screen and (max-width: 992px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (max-width: 600px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (max-width: 380px) {
         display: flex;
         flex-direction: column;
         align-items: center;
-        .card {
-            justify-content: space-between;
-        }
+    }
+}
 
+/* Post details*/
+
+#post-details-article {
+    margin: 0 auto;
+    min-width: 90vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .links {
+        width: 500px;
+        display: flex;
+        justify-content: space-between;
+        @media screen and (max-width: 550px) {
+            width: 350px;
+        }
     }
 
-    .all-users-link{
+    a {
         align-self: end;
+        margin: 10px;
     }
 
-    h2 {
-        width: 200px;
-    }
-
-    #user-details-list {
+    h3, p {
         font-weight: 400;
-        font-size: 1.1rem;
-
-        li {
-            padding: 4px 0;
-        }
     }
 
-    /*User posts list*/
+    /*    Post comments*/
 
-    .user-posts-list {
-        width: 100%;
-        padding: 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    /* Post details*/
-
-    #post-details-article {
-        margin: 0 auto;
-        min-width: 90vw;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        .links {
-            width: 500px;
-            display: flex;
-            justify-content: space-between;
-            @media screen and (max-width: 550px) {
-                width: 350px;
-            }
+    section {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 2vw;
+        grid-row-gap: 3vh;
+        @media screen and (max-width: 1000px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @media screen and (max-width: 800px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media screen and (max-width: 500px) {
+            grid-template-columns: repeat(1, 1fr);
         }
 
-        a {
-            align-self: end;
-            margin: 10px;
-        }
-
-        h3, p {
-            max-width: 550px;
-            font-weight: 400;
-            @media screen and (max-width: 575px) {
-                max-width: 400px;
-            }
-        }
-
-        /*    Post comments*/
-        section {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-column-gap: 2vw;
-            grid-row-gap: 3vh;
-            @media screen and (max-width: 1000px) {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            @media screen and (max-width: 800px) {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            @media screen and (max-width: 500px) {
-                grid-template-columns: repeat(1, 1fr);
-            }
-
-
-            /*.card {*/
-            /*    width: 20vw;*/
-            /*    min-width: 20vw;*/
-            /*    max-width: 20vw;*/
-            /*}*/
-
-            p {
-                padding: 5px;
-                margin: 0;
-            }
+        p {
+            padding: 5px;
+            margin: 0;
         }
     }
+}
+

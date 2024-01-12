@@ -1,15 +1,8 @@
-// В index.html
-// 1 отримати масив об'єктів з endpoint`а https://jsonplaceholder.typicode.com/users
-// 2 Вивести id,name всіх user в index.html. Окремий блок для кожного user.
-// 3 Додати кожному блоку кнопку/посилання , при кліку на яку відбувається перехід  на сторінку user-details.html, котра має детальну інфорацію про об'єкт на який клікнули
-
-
-
 const showUsers = async (): Promise<void> => {
-
-    const usersJson: Response = await fetch('https://jsonplaceholder.typicode.com/users');
+    const usersURL: string = 'https://jsonplaceholder.typicode.com/users';
+    const usersJson: Response = await fetch(usersURL);
     const users:[] = await usersJson.json();
-    console.log(users);
+
     const usersContainer = document.getElementById('users');
 
     for (const user of users) {
@@ -17,8 +10,8 @@ const showUsers = async (): Promise<void> => {
         const userBlock = document.createElement('article');
         const userInfoText = document.createElement('p');
         userInfoText.innerText = `
-        id: ${id},
-        name: ${name}
+        Id: ${id}
+        Name: ${name}
         `
 
         const userInfoButton = document.createElement('button');

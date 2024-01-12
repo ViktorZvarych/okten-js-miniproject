@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport"
@@ -7,17 +7,36 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Post details</title>
 
-	<link rel="stylesheet" href="../css/styles.css">
+	<link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
+	<!-- Change theme toggle button -->
+	<div class="theme-toggle-container">
+		<div class="form-check form-switch theme-toggle">
+			<input
+					class="form-check-input"
+					type="checkbox"
+					role="switch"
+					id="switchThemeInput"
+			/>
+			<label
+					class="form-check-label"
+					for="switchThemeInput"
+					id="switchThemeLabel"
+			>Turn ON the lights</label
+			>
+		</div>
+	</div>
+
+	<!--Loader-->
 	<div id="loader"></div>
 
 	<article id="post-details-article">
 		<section class="links">
-			<a class="all-users-link" href="../..">All users</a>
-
 			<a id="post-author-link">Author details</a>
+
+			<a class="all-users-link" href="../../">All users</a>
 		</section>
 
 		<h2>Post details</h2>
@@ -29,9 +48,15 @@
 
 		<h3>Post comments</h3>
 		<section id="post-comments"></section>
-
 	</article>
 
-	<script src="../js/post-details.js"></script>
+	<!--Bootstrap link-->
+	<script defer src="../js/bootstrap.bundle.min.js"></script>
+
+	<!--Theme-toggle link-->
+	<script defer src="../js/theme-toggle.js"></script>
+
+	<!--Post-details link-->
+	<script defer src="../js/post-details.js"></script>
 </body>
 </html>

@@ -1,0 +1,13 @@
+.theme-toggle-container {
+    margin: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.theme-toggle {
+    width: 200px;
+
+    :hover {
+        cursor: pointer;
+    }
+}

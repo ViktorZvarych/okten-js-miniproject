@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport"
@@ -7,24 +7,68 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>User details</title>
 
-	<link rel="stylesheet" href="../css/styles.css">
+	<link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
+	<!-- Change theme toggle button -->
+	<div class="theme-toggle-container">
+		<div class="form-check form-switch theme-toggle">
+			<input
+					class="form-check-input"
+					type="checkbox"
+					role="switch"
+					id="switchThemeInput"
+			/>
+			<label
+					class="form-check-label"
+					for="switchThemeInput"
+					id="switchThemeLabel"
+			>Turn ON the lights</label
+			>
+		</div>
+	</div>
 
+	<!--Loader-->
 	<div id="loader"></div>
 
-	<article id="user-details-article">
+	<article id="user-details-article" class="mb-4">
 		<a class="all-users-link" href="../..">All users</a>
 
-		<h2>User`s details</h2>
+		<h2>User details</h2>
 
-		<ul id="user-details-list"></ul>
+		<ul id="user-details-list" class="list-group"></ul>
 
-		<button id="show-user-posts-button">Posts of current user</button>
+		<!--USER POSTS-->
+		<!--Trigger modal button-->
+		<button id="show-user-posts-button" class="mt-3" data-bs-toggle="modal" data-bs-target="#posts-modal">Posts of current user</button>
 
-		<ul id="user-posts-list"></ul>
+		<!--Modal-->
+		<section class="modal fade" id="posts-modal" tabindex="-1" aria-labelledby="posts-modal" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-scrollable modal-xl">
+				<div class="modal-content  modal-xl">
+					<div class="modal-header bg-dark ">
+						<h1 class="modal-title fs-5" id="exampleModalLabel">User Posts</h1>
+						<button id="posts-modal-close" type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+
+					<ul id="user-posts-list" class="modal-body bg-dark">
+					</ul>
+
+					<div class="modal-footer bg-dark ">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</section>
 	</article>
 
+	<!--Bootstrap js link-->
+	<script defer src="../js/bootstrap.bundle.min.js"></script>
+
+	<!--Theme-toggle js link-->
+	<script defer src="../js/theme-toggle.js"></script>
+
+	<!--User-details js link-->
 	<script src="../js/user-details.js"></script>
 </body>
 </html>

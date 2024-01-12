@@ -1,9 +1,3 @@
-// На странице user-details.html:
-// 4 Вивести всю, без виключення, інформацію про об'єкт user на який клікнули
-// 5 Додати кнопку "post of current user", при кліку на яку, з'являються title всіх постів поточного юзера
-// (для получения постов используйте эндпоинт https://jsonplaceholder.typicode.com/users/USER_ID/posts)
-//     6 Каждому посту додати кнопку/посилання, при кліку на яку відбувається перехід на сторінку post-details.html, котра має детальну інфу про поточний пост.
-
 const showUserInfo = async (): Promise<void> => {
     // console.log(location.href);
 
@@ -13,22 +7,31 @@ const showUserInfo = async (): Promise<void> => {
     const userInfoObject = JSON.parse(userInfo);
     // console.log(userInfoObject);
 
-    const userInfoArray: string[] = [];
-    getUserInfo(userInfoObject, userInfoArray);
-    // console.log(userInfoArray);
-
-    // const userInfoArticle = document.getElementById('user-details-article') as HTMLElement;
     const userInfoList = document.getElementById('user-details-list') as HTMLUListElement;
 
-    userInfoArray.map(item => {
-        const userInfoItem = document.createElement('li');
-        userInfoItem.innerText = `${item}`;
-        userInfoList.appendChild(userInfoItem);
-    })
+    createUserInfoItemElement(userInfoObject);
 
-    const showUserPostButton = document.getElementById('show-user-posts-button');
+    function createUserInfoItemElement(object: object): void {
+        for (const [key, value] of Object.entries(object)) {
+            const userInfoItem = document.createElement('li');
 
-    showUserPostButton.onclick = async (): Promise<void> => {
+            if (typeof value !== 'object') {
+                userInfoItem.innerText = `- ${key.toUpperCase()}: ${value}`;
+                userInfoList.appendChild(userInfoItem);
+                userInfoItem.classList.add('list-group-item', 'list-group-item-dark', 'p-2');
+            } else {
+                userInfoItem.innerText = `${key.toUpperCase()}:`;
+                userInfoItem.classList.add('fw-bold', 'list-group-item', 'list-group-item-info', 'p-2');
+                userInfoList.appendChild(userInfoItem);
+                createUserInfoItemElement(value);
+            }
+        }
+    }
+
+    const showUserPostsButton = document.getElementById('show-user-posts-button');
+    showUserPostsButton.onclick = showUserPosts;
+
+    async function showUserPosts(): Promise<void> {
         loader.classList.toggle('hidden');
 
         const userPostsJson = await fetch(`https://jsonplaceholder.typicode.com/users/${userInfoObject.id}/posts/`);
@@ -42,7 +45,7 @@ const showUserInfo = async (): Promise<void> => {
         for (const userPost of userPosts) {
             const {title, body} = userPost;
             const userPostCard = document.createElement('li');
-            userPostCard.classList.add('card');
+            userPostCard.classList.add('card-element');
             const userPostTitle = document.createElement('h4');
             userPostTitle.innerText = title.slice(0, 1).toUpperCase() + title.slice(1, 25) + '...';
             const userPostText = document.createElement('p');
@@ -55,7 +58,6 @@ const showUserInfo = async (): Promise<void> => {
 
             userPostCard.append(userPostTitle, userPostText, userPostLink);
             userPostslist.appendChild(userPostCard);
-            showUserPostButton.remove();
         }
 
         loader.classList.toggle('hidden');
@@ -65,16 +67,4 @@ const showUserInfo = async (): Promise<void> => {
     loader.classList.add('hidden');
 }
 
-function getUserInfo(object: object, array: string[]) {
-    for (const [key, value] of Object.entries(object)) {
-        if (typeof value !== 'object') {
-            array.push(`- ${key}: ${value}`);
-        } else {
-            array.push(`${key.toUpperCase()}:`)
-            getUserInfo(value, array);
-        }
-    }
-}
-
-// setTimeout((() => showUserInfo()), 1200);
 showUserInfo()

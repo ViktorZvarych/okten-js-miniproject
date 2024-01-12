@@ -5,18 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a86771a-ea11-46f9-a8bc-64ae35f29fc6" name="Changes" comment="changed project structure: moved css and js folder into src, refactored pathes in html pages; changed flex to grid">
+      <change afterPath="$PROJECT_DIR$/src/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/css/loader.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/css/null.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/css/theme-toggle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ts/theme-toggle.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/post-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/post-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/post-details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/post-details.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user-details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/user-details.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/post-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/post-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ts/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniproject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/miniproject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/post-details.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/post-details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/post-details.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/user-details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/user-details.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/post-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/post-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/user-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ts/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ts/post-details.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/post-details.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ts/user-details.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/user-details.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,13 +35,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="implement-tailwind" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -49,24 +63,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Asus\\IdeaProjects\\miniproject\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "javascript.nodejs.core.library.configured.version": "20.10.0",
+    "javascript.nodejs.core.library.typings.version": "20.10.8",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Asus/IdeaProjects/miniproject/src/js",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\Asus\\IdeaProjects\\miniproject\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Asus\IdeaProjects\miniproject\src\js" />
+      <recent name="C:\Users\Asus\IdeaProjects\miniproject\src\css" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Asus\IdeaProjects\miniproject\src" />
       <recent name="C:\Users\Asus\IdeaProjects\miniproject\pages" />
@@ -81,7 +102,7 @@
       <option name="presentableId" value="Default" />
       <updated>1704805614523</updated>
       <workItem from="1704805615290" duration="32707000" />
-      <workItem from="1704964683891" duration="4839000" />
+      <workItem from="1704964683891" duration="23571000" />
     </task>
     <task id="LOCAL-00001" summary="created miniproject 1st version">
       <option name="closed" value="true" />
@@ -99,7 +120,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704911931705</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="changed project structure: moved css and js folder into src, refactored pathes in html pages; changed flex to grid">
+      <option name="closed" value="true" />
+      <created>1704976958569</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1704976958569</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

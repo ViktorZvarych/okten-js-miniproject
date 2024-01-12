@@ -1,19 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
 	<meta charset="UTF-8">
 	<title>Users</title>
 
-	<link rel="stylesheet" href="./src/css/styles.css">
-
+	<link rel="stylesheet" href="./src/css/main.css">
 </head>
 <body>
-	<section>
+	<!-- Change theme toggle button -->
+	<div class="theme-toggle-container">
+		<div class="form-check form-switch theme-toggle">
+			<input
+					class="form-check-input"
+					type="checkbox"
+					role="switch"
+					id="switchThemeInput"
+			/>
+			<label
+					class="form-check-label"
+					for="switchThemeInput"
+					id="switchThemeLabel"
+			>Turn ON the lights</label
+			>
+		</div>
+	</div>
+
+	<!--Loader-->
+	<section class="mb-4">
 		<div id="loader"></div>
-		<h1>Users</h1>
+		<h1 class="h1 display-2 mb-4">Users</h1>
 		<div id="users" class="users-container"></div>
 	</section>
 
+	<!--Bootstrap js link-->
+	<script defer src="./src/js/bootstrap.bundle.min.js"></script>
+
+	<!--Theme-toggle js link-->
+	<script defer src="./src/js/theme-toggle.js"></script>
+
+	<!--Index js link-->
 	<script src="./src/js/main.js"></script>
 </body>
 </html>

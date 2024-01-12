@@ -1,6 +1,3 @@
-// На странице post-details.html:
-// 7 Вивести всю, без виключення, інформацію про об'єкт post на який клікнули .
-// 8 Нижчє інформаці про пост, вивести всі коментарі поточного поста (ендпоінт  - https://jsonplaceholder.typicode.com/posts/POST_ID/comments)
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -17,7 +14,6 @@ const showPostInfo = () => __awaiter(this, void 0, void 0, function* () {
     console.log(userInfo);
     const postInfoJSON = url.searchParams.get('post-details');
     const postInfo = JSON.parse(postInfoJSON);
-    console.log(postInfo);
     const postAuthorLink = document.getElementById('post-author-link');
     postAuthorLink.href = `./user-details.html?userinfo=${userInfoJSON}`;
     const postAuthorElement = document.getElementById('post-author');
@@ -33,18 +29,17 @@ const showPostInfo = () => __awaiter(this, void 0, void 0, function* () {
     for (const comment of comments) {
         const { name, email, body } = comment;
         const commentElement = document.createElement('div');
-        commentElement.classList.add('card');
+        commentElement.classList.add('card-element');
         const nameElement = document.createElement('p');
-        nameElement.innerText = `
-        Name: ${name}`;
+        nameElement.innerText = `Name: ${name}`;
         const emailElement = document.createElement('p');
-        emailElement.innerText = `
-        Email: ${email}`;
+        emailElement.style['word-break'] = 'break-word';
+        emailElement.innerText = `Email: ${email}`;
         const bodyElement = document.createElement('p');
         bodyElement.classList.add('hidden-text');
-        bodyElement.innerText = `
-        Comment: ${body}`;
-        commentElement.append(nameElement, emailElement, bodyElement);
+        bodyElement.innerText = `Comment: ${body}`;
+        const hr = document.createElement('hr');
+        commentElement.append(nameElement, emailElement, hr, bodyElement);
         postCommentsElement.appendChild(commentElement);
     }
     const loader = document.getElementById('loader');
