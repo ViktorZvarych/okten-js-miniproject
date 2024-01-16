@@ -14,10 +14,13 @@ const showPostInfo = () => __awaiter(this, void 0, void 0, function* () {
     console.log(userInfo);
     const postInfoJSON = url.searchParams.get('post-details');
     const postInfo = JSON.parse(postInfoJSON);
-    const postAuthorLink = document.getElementById('post-author-link');
-    postAuthorLink.href = `./user-details.html?userinfo=${userInfoJSON}`;
     const postAuthorElement = document.getElementById('post-author');
-    postAuthorElement.innerText = 'Post author: ' + userInfo.name;
+    const postAuthorTitle = document.createElement('p');
+    postAuthorTitle.innerText = 'Post author: ';
+    const postAuthorLink = document.createElement('a');
+    postAuthorLink.href = `./user-details.html?userinfo=${userInfoJSON}`;
+    postAuthorLink.innerText = userInfo.name;
+    postAuthorElement.append(postAuthorTitle, postAuthorLink);
     const postTitleElement = document.getElementById('post-title');
     postTitleElement.innerText = 'Post title: ' + postInfo.title;
     const postBodyElement = document.getElementById('post-body');

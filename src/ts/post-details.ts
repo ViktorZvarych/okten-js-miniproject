@@ -6,11 +6,15 @@ const showPostInfo = async (): Promise<void> => {
     const postInfoJSON: string = url.searchParams.get('post-details');
     const postInfo = JSON.parse(postInfoJSON);
 
-    const postAuthorLink = document.getElementById('post-author-link') as HTMLLinkElement;
-    postAuthorLink.href = `./user-details.html?userinfo=${userInfoJSON}`;
 
-    const postAuthorElement = document.getElementById('post-author') as HTMLParagraphElement;
-    postAuthorElement.innerText = 'Post author: ' + userInfo.name;
+    const postAuthorElement = document.getElementById('post-author') as HTMLDivElement;
+    const postAuthorTitle = document.createElement('p');
+    postAuthorTitle.innerText = 'Post author: ';
+    const postAuthorLink = document.createElement('a');
+    postAuthorLink.href = `./user-details.html?userinfo=${userInfoJSON}`;
+    postAuthorLink.innerText = userInfo.name;
+    postAuthorElement.append(postAuthorTitle, postAuthorLink);
+
 
     const postTitleElement = document.getElementById('post-title') as HTMLHeadingElement;
     postTitleElement.innerText = 'Post title: ' + postInfo.title;
