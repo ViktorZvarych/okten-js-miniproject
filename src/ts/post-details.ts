@@ -9,7 +9,7 @@ const showPostInfo = async (): Promise<void> => {
 
     const postAuthorElement = document.getElementById('post-author') as HTMLDivElement;
     const postAuthorTitle = document.createElement('p');
-    postAuthorTitle.innerText = 'Post author: ';
+    postAuthorTitle.innerText = 'Author: ';
     const postAuthorLink = document.createElement('a');
     postAuthorLink.href = `./user-details.html?userinfo=${userInfoJSON}`;
     postAuthorLink.innerText = userInfo.name;
@@ -17,10 +17,10 @@ const showPostInfo = async (): Promise<void> => {
 
 
     const postTitleElement = document.getElementById('post-title') as HTMLHeadingElement;
-    postTitleElement.innerText = 'Post title: ' + postInfo.title;
+    postTitleElement.innerText = 'Title: ' + postInfo.title[0].toUpperCase() + postInfo.title.slice(1);
 
     const postBodyElement = document.getElementById('post-body') as HTMLParagraphElement;
-    postBodyElement.innerText = 'Post text: ' + postInfo.body;
+    postBodyElement.innerText = 'Post: ' + postInfo.body[0].toUpperCase() + postInfo.body.slice(1);
 
     const commentsRes: Response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postInfo.id}/comments`);
     const comments = await commentsRes.json();

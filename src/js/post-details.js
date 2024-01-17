@@ -16,15 +16,15 @@ const showPostInfo = () => __awaiter(this, void 0, void 0, function* () {
     const postInfo = JSON.parse(postInfoJSON);
     const postAuthorElement = document.getElementById('post-author');
     const postAuthorTitle = document.createElement('p');
-    postAuthorTitle.innerText = 'Post author: ';
+    postAuthorTitle.innerText = 'Author: ';
     const postAuthorLink = document.createElement('a');
     postAuthorLink.href = `./user-details.html?userinfo=${userInfoJSON}`;
     postAuthorLink.innerText = userInfo.name;
     postAuthorElement.append(postAuthorTitle, postAuthorLink);
     const postTitleElement = document.getElementById('post-title');
-    postTitleElement.innerText = 'Post title: ' + postInfo.title;
+    postTitleElement.innerText = 'Title: ' + postInfo.title[0].toUpperCase() + postInfo.title.slice(1);
     const postBodyElement = document.getElementById('post-body');
-    postBodyElement.innerText = 'Post text: ' + postInfo.body;
+    postBodyElement.innerText = 'Post: ' + postInfo.body[0].toUpperCase() + postInfo.body.slice(1);
     const commentsRes = yield fetch(`https://jsonplaceholder.typicode.com/posts/${postInfo.id}/comments`);
     const comments = yield commentsRes.json();
     console.log(comments);
