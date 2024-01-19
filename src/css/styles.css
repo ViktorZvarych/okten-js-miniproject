@@ -113,9 +113,6 @@ article {
     align-self: end;
 }
 
-#show-user-posts-button {
-    width: 90%;
-}
 
 h2 {
     width: 200px;
@@ -124,12 +121,16 @@ h2 {
 #user-details-list {
     font-weight: 400;
     font-size: 1.1rem;
+    width: 90%;
 
     li {
         padding: 4px 0;
     }
 }
 
+#show-user-posts-button {
+    width: 90%;
+}
 /*User posts list*/
 
 .user-posts-list {
